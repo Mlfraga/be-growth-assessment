@@ -9,14 +9,14 @@ services:
       - db
       - redis
     environment:
-      DB_USERNAME: go_assessment_user
-      DB_PASSWORD: KaCT3XW2UKgE
-      DB_NAME: go_assessment_db
-      DB_HOST: localhost
-      DB_PORT: 5432
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      JWT_SECRET: dxiyXWAcMnj66j3y4JPC7HhwUiW6CFqQecL7dpYU4qmbtj
+      DBUsername: go_assessment_user
+      DBPassword: KaCT3XW2UKgE
+      DBName: go_assessment_db
+      DBHost: localhost
+      DBPort: 5432
+      RedisHost: redis
+      RedisPort: 6379
+      JWTSecret: dxiyXWAcMnj66j3y4JPC7HhwUiW6CFqQecL7dpYU4qmbtj
 
   db:
     image: postgres:13

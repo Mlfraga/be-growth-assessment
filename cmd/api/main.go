@@ -17,7 +17,7 @@ import (
 
 func main() {
     cfg := config.LoadConfig()
-    fmt.Println("🚀 ~ funcmain ~ cfg:", cfg.DBHost)
+    fmt.Println("🚀 ~ funcdasdasdmain ~ cfg:", cfg)
 
     dsn := "host=" + cfg.DBHost + " user=" + cfg.DBUsername + " password=" + cfg.DBPassword + " dbname=" + cfg.DBName + " port=" + cfg.DBPort + " sslmode=disable"
     db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
