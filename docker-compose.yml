@@ -12,11 +12,13 @@ services:
       DBUsername: go_assessment_user
       DBPassword: KaCT3XW2UKgE
       DBName: go_assessment_db
-      DBHost: localhost
+      DBHost: database
       DBPort: 5432
       RedisHost: redis
       RedisPort: 6379
       JWTSecret: dxiyXWAcMnj66j3y4JPC7HhwUiW6CFqQecL7dpYU4qmbtj
+    networks:
+      - app-network
 
   db:
     image: postgres:13
@@ -28,11 +30,19 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   redis:
     image: redis:6
     ports:
       - "6379:6379"
+    networks:
+      - app-network
 
 volumes:
   postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
