@@ -35,7 +35,12 @@ JWTSecret=dxiyXWAcMnj66j3y4JPC7HhwUiW6CFqQecL7dpYU4qmbtj
 docker-compose up --build
 ```
 
-4. **Access the API at:**
+4. **Run the app with the command**
+   ```bash
+   go run cmd/api/main.go
+   ```
+      
+5. **Access the API at:**
    `http://localhost:8080`
 
 ## Endpoints
