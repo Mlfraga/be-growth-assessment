@@ -40,6 +40,21 @@ services:
     networks:
       - app-network
 
+  migrate:
+    image: migrate/migrate
+    command:
+      [
+        "-path",
+        "/migrations",
+        "-database",
+        "postgres://go_assessment_user:KaCT3XW2UKgE@db:5432/go_assessment_db?sslmode=disable",
+        "up",
+      ]
+    volumes:
+      - ./migrations:/migrations
+    depends_on:
+      - db
+
 volumes:
   postgres_data:
 

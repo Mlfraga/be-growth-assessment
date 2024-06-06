@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go_api/internal/config"
+	"go_api/internal/domain"
 	"go_api/internal/handler"
 	"go_api/internal/middleware"
 	"go_api/internal/repository"
@@ -23,6 +24,12 @@ func main() {
     db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
     if err != nil {
         log.Fatalf("failed to connect database: %v", err)
+    }
+
+    // Auto migrate database schema
+    err = db.AutoMigrate(&domain.Organization{}, &domain.User{})
+    if err != nil {
+        log.Fatalf("failed to migrate database: %v", err)
     }
 
     // Initialize repositories
